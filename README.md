@@ -138,6 +138,8 @@ images[0].save('out.jpg')
 
       ```bash
       python inference_batch.py --batch_size 1 --folder generated_output --seed 489 --scheduled-sampling 1.0 --half
+
+      python inference.py
       ```
   
 3. Setup FGAHOI at `../FGAHOI`. See [FGAHOI repo](https://github.com/xiaomabufei/FGAHOI) on how to setup FGAHOI and also HICO-DET dataset in `data/hico_20160224_det`.
