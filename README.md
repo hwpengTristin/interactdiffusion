@@ -177,6 +177,16 @@ images[0].save('out.jpg')
       TORCH_DISTRIBUTED_DEBUG=INFO CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 --master_port=12345 main.py --yaml_file configs/hoi_hico_text.yaml --name test_stablediffu_20BS --batch_size=20 --gradient_accumulation_step 2 --total_iters 500000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
 
       ```
+      ```
+      ================================= E2VG TRAIN ================================
+      conda activate FGT_ENV310_Diffusion
+      
+      CUDA_VISIBLE_DEVICES=1,2 torchrun --nproc_per_node=2 --master_port=1111 main.py --yaml_file configs/E2VG_stable_diffusion_config.yaml --name test_stablediffu_baseline_2gpus5batchsize --batch_size=5 --gradient_accumulation_step 1 --total_iters 1000000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
+      
+      ================================= E2VG TEST ================================
+      python inference_BE2VG_MultipleGPUs_MultipleWorker.py
+      
+      ```
 
 ## TODO
 
