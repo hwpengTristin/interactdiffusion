@@ -178,14 +178,24 @@ images[0].save('out.jpg')
 
       ```
       ```
-      ================================= E2VG TRAIN ================================
+      =========================================== E2VG TRAIN =========================================
       conda activate FGT_ENV310_Diffusion
       
       CUDA_VISIBLE_DEVICES=1,2 torchrun --nproc_per_node=2 --master_port=1111 main.py --yaml_file configs/E2VG_stable_diffusion_config.yaml --name test_stablediffu_baseline_2gpus5batchsize --batch_size=5 --gradient_accumulation_step 1 --total_iters 1000000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
       
-      ================================= E2VG TEST ================================
+      =========================================== E2VG TEST ==========================================
       python inference_BE2VG_MultipleGPUs_MultipleWorker.py
-      
+
+      ================================= training log with tensorboard ================================
+      （1）BE2VG_stable_diffusion_baseline代码查看loss
+           pip install tensorboard --upgrade  
+           tensorboard --logdir OUTPUT --bind_all     #可能报错
+           tensorboard --logdir OUTPUT --bind_all --load_fast=false
+      （2）windows端查看，打开命令行输入：
+           ssh  jianhuili@c6000.dynip.ntu.edu.sg -L 6006:localhost:6006
+      （3）windows端浏览器查看loss
+           http://localhost:6006
+
       ```
 
 ## TODO
