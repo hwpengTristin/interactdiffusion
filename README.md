@@ -186,6 +186,9 @@ images[0].save('out.jpg')
       =========================================== E2VG TEST ==========================================
       python inference_BE2VG_MultipleGPUs_MultipleWorker.py
 
+      =========================================== E2VG inference good seeds ==========================================
+      seed: 13798, 555
+      
       ================================= training log with tensorboard ================================
       （1）BE2VG_stable_diffusion_baseline代码查看loss
            pip install tensorboard --upgrade  
