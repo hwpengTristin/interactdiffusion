@@ -192,12 +192,12 @@ images[0].save('out.jpg')
       ================================= training log with tensorboard ================================
       （1）BE2VG_stable_diffusion_baseline代码查看loss
            pip install tensorboard --upgrade  
-           tensorboard --logdir OUTPUT --bind_all     #可能报错
-           tensorboard --logdir OUTPUT --bind_all --load_fast=false
+           tensorboard --logdir ./ --bind_all     #可能报错
+           tensorboard --logdir ./ --bind_all --load_fast=false
       （2）windows端查看，打开命令行输入：
            ssh  jianhuili@c6000.dynip.ntu.edu.sg -L 6006:localhost:6006
       （3）windows端浏览器查看loss
-           http://localhost:6006
+           http://localhost:6006/
 
       ```
 
