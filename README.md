@@ -170,9 +170,7 @@ images[0].save('out.jpg')
 
       ```bash
       CUDA_VISIBLE_DEVICES=2 torchrun --nproc_per_node=1 main.py --yaml_file configs/hoi_hico_text.yaml --ckpt ./interact-diffusion-v1.pth --name test --batch_size=4 --gradient_accumulation_step 1 --total_iters 500000 --amp true --disable_inference_in_training true
-      
       UDA_VISIBLE_DEVICES=1 torchrun --nproc_per_node=1 main.py --yaml_file configs/hoi_hico_text.yaml --name test --batch_size=4 --gradient_accumulation_step 1 --total_iters 500000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
-      
       UDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 main.py --yaml_file configs/hoi_hico_text.yaml --ckpt ./interact-diffusion-v1.pth --name test --batch_size=4 --gradient_accumulation_step 2 --total_iters 500000 --amp true --disable_inference_in_training true 
       ```   
       
