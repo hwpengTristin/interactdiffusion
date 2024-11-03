@@ -205,6 +205,7 @@ images[0].save('out.jpg')
            tensorboard --logdir ./ --bind_all     #可能报错
            tensorboard --logdir ./ --bind_all --load_fast=false
       （2）windows端查看，打开命令行输入：
+           vscode==>ports==>add ports ==> 6006 ==> 右键 open in browser
            ssh  jianhuili@c6000.dynip.ntu.edu.sg -L 6006:localhost:6006
       （3）windows端浏览器查看loss
            http://localhost:6006/
