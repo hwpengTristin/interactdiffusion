@@ -165,25 +165,24 @@ images[0].save('out.jpg')
 
       ```bash
       CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 main.py --yaml_file configs/hoi_hico_text.yaml --ckpt <existing_gligen_checkpoint> --name test --batch_size=4 --gradient_accumulation_step 2 --total_iters 500000 --amp true --disable_inference_in_training true --official_ckpt_name <existing SD v1.4/v1.5 checkpoint>
-
+      ```
 =============================Me setting================================
+      ```bash
       CUDA_VISIBLE_DEVICES=2 torchrun --nproc_per_node=1 main.py --yaml_file configs/hoi_hico_text.yaml --ckpt ./interact-diffusion-v1.pth --name test --batch_size=4 --gradient_accumulation_step 1 --total_iters 500000 --amp true --disable_inference_in_training true
       
       UDA_VISIBLE_DEVICES=1 torchrun --nproc_per_node=1 main.py --yaml_file configs/hoi_hico_text.yaml --name test --batch_size=4 --gradient_accumulation_step 1 --total_iters 500000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
       
       UDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 main.py --yaml_file configs/hoi_hico_text.yaml --ckpt ./interact-diffusion-v1.pth --name test --batch_size=4 --gradient_accumulation_step 2 --total_iters 500000 --amp true --disable_inference_in_training true 
-      ```
-      ```bash
+      ```   
+      
 =============# train script (latest version):
-
+      ```bash
       CUDA_VISIBLE_DEVICES=2,3 torchrun --nproc_per_node=2 --master_port=1122 main.py --yaml_file configs/E2VG_stable_diffusion_config.yaml --name test_stablediffu_baseline_2gpus5batchsize --batch_size=5 --gradient_accumulation_step 1 --total_iters 1000000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
 
       CUDA_VISIBLE_DEVICES=1 torchrun --nproc_per_node=1 --master_port=8199 main.py --yaml_file configs/E2VG_stable_diffusion_config.yaml --name test_stablediffu_baseline_1gpus5batchsize_2gradientaccum --batch_size=5 --gradient_accumulation_step 2 --total_iters 2000000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
 
       ###debug mode shows distribute error info
       TORCH_DISTRIBUTED_DEBUG=INFO CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc_per_node=2 --master_port=12345 main.py --yaml_file configs/hoi_hico_text.yaml --name test_stablediffu_20BS --batch_size=20 --gradient_accumulation_step 2 --total_iters 500000 --amp true --disable_inference_in_training true --official_ckpt_name ./v1-5-pruned-emaonly.ckpt
-
-
       ```
       ```bash
       =========================================== E2VG TRAIN =========================================
